@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Weather App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Weather App</title>
 </head>
+
 <body>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="page-header">
         <h1>Weather Chat</h1>
       </div>
-      <form>
+      <form class="input-form">
         <div class="form-group">
           <input type="text" id="post-city" class="form-control" placeholder="Enter City">
           <button type="button" class="btn btn-primary add-city">Get Temp</button>
         </div>
       </form>
       <script id="weather-result-temp" type="text/x-handlebars-template">
-        <ul class="result">
+        <ul class="result" data-id = '{{id}}'>
             <li>
-                <h4>{{name}}</h4>
+                <h3>{{name}}</h3>
                 <div class="weather-container">
-                  <p>{{temp_c}}/{{temp_f}} on {{localtime}}</p>
+                  <h4>{{temp_c}}C / {{temp_f}}F  on  {{localtime}}</h4>
                 </div>
-                <div class="comments-list">
-                    <input type="text" class="comment-name"><button class="btn btn-primary add-comment">Post Comment</button> 
-                </div>
+                <ul class="comment">
+                    {{#each comments}}
+                        <li>{{text}}<button class="btn btn-danger btn-sm remove-comment">Remove Comment</button></li>
+                    {{/each}}
+                    <div class="comments-list">
+                        <input type="text" class="comment-input">
+                        <button class="btn btn-primary add-comment">Post Comment</button>
+                    </div>
+                </ul>
             </li>
         </ul>
       </script>
-      <ul class="results"></ul>
+      <div class="results"></div>
     </div>
   </div>
-  <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bootstrap/dist/js/bootstrap.js"></script>
   <script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
   <script src="main.js"> </script>
 </body>
+
 </html>

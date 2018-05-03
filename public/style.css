@@ -1,0 +1,15 @@
+.add-comment{
+    background-color: rgb(140, 196, 57);
+}
+h3 {
+    text-shadow: 0 0 3px grey;
+}
+ul.result {
+    border: solid;
+    padding-top: 10px;
+    box-shadow:2px 2px 3px 3px rgb(206, 206, 206);
+    width: 90%;
+}
+.remove-comment {
+    display: flex;
+}
