@@ -13,3 +13,15 @@ ul.result {
 .remove-comment {
     display: flex;
 }
+.delete-btn {
+    float: right;
+    padding-right: 10px;
+}
+button#delete {
+    border-radius: 5px;
+    background: none;
+    background: linear-gradient( white,red);
+}
+button#delete:hover {
+    background: linear-gradient(red, white);
+}
